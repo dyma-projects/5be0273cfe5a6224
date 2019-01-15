@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-exercice1-enfant',
@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./exercice1-enfant.component.css']
 })
 export class Exercice1EnfantComponent implements OnInit {
+	@Output() public incrementValue: EventEmitter<boolean> = new EventEmitter<boolean>();
+	@Input() compteur1; 
 
-  constructor() { }
+	incrementCompteur( valeur : boolean) : void{
+		this.incrementValue.emit(valeur);
+	}	
 
-  ngOnInit() {
-  }
+  	constructor() { }
+
+  	ngOnInit() {
+  	}
 
 }
